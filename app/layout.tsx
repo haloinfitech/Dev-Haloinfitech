@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "aplikasi mobile",
     "website development",
   ],
-  authors: [{ name: "HaloInfitech Team" }],
-  creator: "HaloInfitech - Infinity Technology",
-  publisher: "HaloInfitech",
+  authors: [{ name: "infitech" }],
+  creator: "infitech - Infinity Technology",
+  publisher: "ititanix",
   formatDetection: {
     email: false,
     address: false,
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "/",
+    url: "https://haloinfitech.vercel.app/images/logo.jpg",
     title: "HaloInfitech - Solusi Digital Tanpa Batas",
     description:
       "Transformasi digital dimulai dari sini. Konsultasi gratis, response 24 jam.",
     siteName: "HaloInfitech",
     images: [
       {
-        url: "/images/logo.jpg",
+        url: "https://haloinfitech.vercel.app/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "HaloInfitech - Infinity Technology Solutions",
