@@ -1,0 +1,26 @@
+{
+  "name": "HaloInfitech - Solusi Digital Tanpa Batas",
+  "short_name": "HaloInfitech",
+  "description": "Platform digital terdepan dari UKM IT Universitas Negeri Padang. Layanan web development, mobile apps, dan solusi digital dengan harga mahasiswa, kualitas profesional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
