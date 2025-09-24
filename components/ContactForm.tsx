@@ -16,11 +16,12 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const projectTypes = [
-    "Website/Landing Page",
+    "Website Development",
     "Mobile Application",
-    "E-commerce",
+    "Sistem Architecture",
     "Sistem Informasi",
     "Konsultasi IT",
+    "Perangkat IT",
     "Lainnya",
   ];
 
@@ -44,20 +45,44 @@ export default function ContactForm() {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate API call
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setIsSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        whatsapp: "",
-        projectType: "",
-        description: "",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          whatsapp: "",
+          projectType: "",
+          description: "",
+        });
+      } else {
+        // Handle validation errors from server
+        if (result.errors) {
+          setErrors(result.errors);
+        } else {
+          // Handle general errors
+          setErrors({
+            general: result.error || 'Terjadi kesalahan. Silakan coba lagi.',
+          });
+        }
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setErrors({
+        general: 'Terjadi kesalahan jaringan. Silakan cek koneksi internet Anda.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -83,10 +108,17 @@ export default function ContactForm() {
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
           <h3 className="text-2xl font-bold text-gray-900">Terima Kasih!</h3>
-          <p className="text-gray-600">
-            Pesan Anda telah diterima. Tim kami akan menghubungi Anda dalam 24
-            jam.
+          <p className="text-gray-600 mb-4">
+            Pesan Anda telah berhasil dikirim. Tim kami akan menghubungi Anda dalam <strong>24 jam</strong>.
           </p>
+          <div className="bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-lg text-sm mb-4">
+            <div className="flex items-center space-x-2">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+              </svg>
+              <span>Email konfirmasi telah dikirim. Silakan cek inbox atau folder spam Anda.</span>
+            </div>
+          </div>
           <button
             onClick={() => setIsSubmitted(false)}
             className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
@@ -110,6 +142,18 @@ export default function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* General Error Message */}
+        {errors.general && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+            <div className="flex items-center space-x-2">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+              <span>{errors.general}</span>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-gray-700">

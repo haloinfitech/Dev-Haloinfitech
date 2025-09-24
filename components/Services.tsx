@@ -1,48 +1,91 @@
 "use client";
 
-import { useState } from 'react';
-import { Globe, Smartphone, ShoppingCart, Database, Lightbulb, Headphones } from 'lucide-react';
+import { useState } from "react";
+import {
+  Globe,
+  Smartphone,
+  ShoppingCart,
+  Database,
+  Lightbulb,
+  Headphones,
+} from "lucide-react";
 
 export default function Services() {
-  const [hoveredService, setHoveredService] = useState(null);
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
 
   const services = [
     {
       icon: Globe,
-      title: 'Website Development',
-      description: 'Landing pages, company profiles, dan website custom sesuai kebutuhan bisnis Anda.',
-      features: ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'Admin Panel']
+      title: "Website Development",
+      description:
+        "Landing pages, company profiles, dan website custom sesuai kebutuhan bisnis Anda.",
+      features: [
+        "Responsive Design",
+        "SEO Optimized",
+        "Fast Loading",
+        "Admin Panel",
+      ],
     },
     {
       icon: Smartphone,
-      title: 'Mobile Applications',
-      description: 'Aplikasi mobile Android dan iOS dengan teknologi terdepan dan user experience terbaik.',
-      features: ['Cross Platform', 'Push Notifications', 'Offline Mode', 'App Store Ready']
-    },
-    {
-      icon: ShoppingCart,
-      title: 'E-commerce Solutions',
-      description: 'Platform online shop lengkap dengan sistem pembayaran dan manajemen inventory.',
-      features: ['Payment Gateway', 'Inventory System', 'Order Management', 'Analytics']
+      title: "Mobile Application",
+      description:
+        "Aplikasi mobile Android dan iOS dengan teknologi terdepan dan user experience terbaik.",
+      features: [
+        "Cross Platform",
+        "Push Notifications",
+        "Offline Mode",
+        "App Store Ready",
+      ],
     },
     {
       icon: Database,
-      title: 'Sistem Informasi',
-      description: 'Sistem manajemen data dan workflow automation untuk efisiensi operasional.',
-      features: ['Database Design', 'User Management', 'Reporting', 'API Integration']
+      title: "Sistem Architecture",
+      description:
+        "Perancangan arsitektur sistem yang scalable, secure, dan maintainable untuk enterprise.",
+      features: [
+        "System Design",
+        "Microservices",
+        "Cloud Architecture",
+        "Security Framework",
+      ],
+    },
+    {
+      icon: ShoppingCart,
+      title: "Sistem Informasi",
+      description:
+        "Sistem manajemen data dan workflow automation untuk efisiensi operasional bisnis.",
+      features: [
+        "Database Management",
+        "Business Process",
+        "Reporting System",
+        "API Integration",
+      ],
     },
     {
       icon: Lightbulb,
-      title: 'Digital Innovation',
-      description: 'Konsultasi dan implementasi solusi teknologi terbaru untuk transformasi digital.',
-      features: ['Tech Consulting', 'Process Automation', 'Digital Strategy', 'Innovation Lab']
+      title: "Konsultasi IT",
+      description:
+        "Konsultasi strategis untuk transformasi digital dan optimalisasi infrastruktur teknologi.",
+      features: [
+        "Digital Strategy",
+        "Tech Assessment",
+        "Process Optimization",
+        "Technology Roadmap",
+      ],
     },
     {
       icon: Headphones,
-      title: 'Support & Maintenance',
-      description: 'Dukungan teknis berkelanjutan dan maintenance untuk semua project yang telah selesai.',
-      features: ['24/7 Support', 'Bug Fixes', 'Updates', 'Performance Monitoring']
-    }
+      title: "Perangkat IT",
+      description:
+        "Pengadaan, instalasi, dan maintenance perangkat keras IT untuk mendukung operasional.",
+      features: [
+        "Hardware Setup",
+        "Network Configuration",
+        "IT Procurement",
+        "Technical Support",
+      ],
+    },
   ];
 
   return (
@@ -53,7 +96,8 @@ export default function Services() {
             Layanan <span className="text-blue-600">Digital</span> Kami
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Solusi teknologi komprehensif untuk mendukung transformasi digital bisnis dan organisasi Anda
+            Solusi teknologi komprehensif untuk mendukung transformasi digital
+            bisnis dan organisasi Anda
           </p>
         </div>
 
@@ -66,23 +110,36 @@ export default function Services() {
               onMouseLeave={() => setHoveredService(null)}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              
+
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
                   <service.icon className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {service.title}
+                </h3>
               </div>
 
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {service.description}
+              </p>
 
-              <div className={`space-y-2 transition-all duration-300 ${
-                hoveredService === index ? 'opacity-100 max-h-40' : 'opacity-70 max-h-20 overflow-hidden'
-              }`}>
+              <div
+                className={`space-y-2 transition-all duration-300 ${
+                  hoveredService === index
+                    ? "opacity-100 max-h-40"
+                    : "opacity-70 max-h-20 overflow-hidden"
+                }`}
+              >
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center space-x-2">
+                  <div
+                    key={featureIndex}
+                    className="flex items-center space-x-2"
+                  >
                     <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                    <span className="text-sm text-gray-700 font-medium">
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>

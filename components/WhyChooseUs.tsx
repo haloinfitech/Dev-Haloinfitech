@@ -86,13 +86,20 @@ export default function WhyChooseUs() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#contact"
+              href="#contact-form"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact-form')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}
             >
               Konsultasi Gratis
             </a>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6285157517798"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-300"

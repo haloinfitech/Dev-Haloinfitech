@@ -41,7 +41,7 @@ export default function HeroSection() {
 
                 <div className="space-y-4 lg:space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[0.9] tracking-tight">
-                    <span className="block">SOLUSI DIGITAL</span>
+                    <span className="block">TEKNOLOGI DAN KREATIFITAS</span>
                     <span className="block text-blue-600 bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                       TANPA BATAS
                     </span>
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6 lg:pt-8">
                 <a
-                  href="https://wa.me/6281234567890"
+                  href="https://wa.me/6285157517798"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center space-x-3 bg-green-500 text-white px-6 py-4 rounded-xl hover:bg-green-600 transition-all duration-300 font-medium group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -88,7 +88,7 @@ export default function HeroSection() {
                 </a>
 
                 <a
-                  href="mailto:hello@haloinfitech.com"
+                  href="mailto:haloinfitech@gmail.com"
                   className="inline-flex items-center justify-center space-x-3 bg-blue-600 text-white px-6 py-4 rounded-xl hover:bg-blue-700 transition-all duration-300 font-medium group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Mail className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
@@ -102,6 +102,7 @@ export default function HeroSection() {
 
             {/* Right Column - Contact Form */}
             <div
+              id="contact-form"
               className={`lg:pl-8 ${
                 isVisible ? "animate-fade-in-right" : "opacity-0"
               }`}
